@@ -1,112 +1,71 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact — Onbrd Solutions</title>
-<meta name="description" content="Get a custom quote for AI agents tailored to your workflows." />
-<link rel="canonical" href="contact.html" />
-<meta property="og:title" content="Contact — Onbrd Solutions" />
-<meta property="og:description" content="Get a custom quote for AI agents tailored to your workflows." />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="assets/brand/og-cover.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Contact — Onbrd Solutions" />
-<meta name="twitter:description" content="Get a custom quote for AI agents tailored to your workflows." />
-<meta name="theme-color" content="#0B468C" />
-<link rel="icon" href="assets/brand/favicon.ico">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/main.css" />
-<!-- Optional analytics (Plausible) -->
-<!-- <script defer data-domain="onbrd.solutions" src="https://plausible.io/js/script.js"></script> -->
-</head>
-<body><header class="header">
-  <div class="container nav" role="navigation" aria-label="Primary">
-    <a class="logo" href="index.html">Onbrd Solutions</a>
-    <nav>
-      <button id="nav-toggle" class="btn secondary" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">Menu</button>
-      <div id="nav-menu" class="links" role="menubar">
-        <a role="menuitem" href="index.html">Home</a>
-        <a role="menuitem" href="services.html">Services</a>
-        <a role="menuitem" href="about.html">About</a>
-        <a role="menuitem" href="contact.html">Contact</a>
-        <a class="btn" role="menuitem" href="contact.html#quote">Get a Custom Quote</a>
-      </div>
-    </nav>
+<form
+  id="quote"
+  class="stack"
+  action="https://formspree.io/f/mjkozpbk"
+  method="POST"
+>
+  <div class="form-row">
+    <div class="stack">
+      <label for="name">Name</label>
+      <input id="name" name="name" class="input" required autocomplete="name" />
+    </div>
+    <div class="stack">
+      <label for="email">Work Email</label>
+      <input id="email" name="email" class="input" type="email" required autocomplete="email" />
+    </div>
   </div>
-</header>
-<a class="visually-hidden" href="#main">Skip to content</a>
 
-<main id="main" class="section">
-  <div class="container grid grid-2">
-    <section class="stack">
-      <h1>Get a Custom Quote</h1>
-      <p>Tell us what you’re aiming to automate. We’ll recommend the fastest path to ROI.</p>
-      <form class="stack" data-contact id="quote">
-        <div class="form-row">
-          <div class="stack"><label for="name">Name</label><input id="name" name="name" class="input" required autocomplete="name"/></div>
-          <div class="stack"><label for="email">Work Email</label><input id="email" name="email" class="input" type="email" required autocomplete="email"/></div>
-        </div>
-        <div class="form-row">
-          <div class="stack"><label for="company">Company</label><input id="company" name="company" class="input" autocomplete="organization"/></div>
-          <div class="stack"><label for="website">Website</label><input id="website" name="website" class="input" type="url" placeholder="https://"/></div>
-        </div>
-        <fieldset class="card">
-          <legend><strong>Which agent(s) are you interested in?</strong></legend>
-          <label><input type="checkbox" name="services" value="chatbot" class="checkbox"> Website FAQ & Sales‑Assist Chatbot</label><br/>
-          <label><input type="checkbox" name="services" value="social" class="checkbox"> Social‑Media Planner & Auto‑Poster</label><br/>
-          <label><input type="checkbox" name="services" value="email-qual" class="checkbox"> Email Lead‑Qualification Bot</label><br/>
-          <label><input type="checkbox" name="services" value="minutes" class="checkbox"> Meeting Recorder & Minutes Generator</label><br/>
-          <label><input type="checkbox" name="services" value="other" class="checkbox"> Other Useful Bots</label>
-        </fieldset>
-        <div class="form-row">
-          <div class="stack">
-            <label for="budget">Budget Range</label>
-            <select id="budget" name="budget" class="select">
-              <option value="">Not sure</option>
-              <option value="500-1k">$500–$1k</option>
-              <option value="1k-3k">$1k–$3k</option>
-              <option value="3k-5k">$3k–$5k</option>
-              <option value="5k-plus">$5k+</option>
-            </select>
-          </div>
-          <div class="stack"><label for="source">How did you hear about us?</label><input id="source" name="source" class="input" placeholder="Google, LinkedIn, referral..." /></div>
-        </div>
-        <div class="stack">
-          <label for="message">What are you hoping to achieve?</label>
-          <textarea id="message" name="message" class="input" placeholder="Share a bit about your workflow, tools, and the outcomes you want."></textarea>
-        </div>
-        <div class="stack">
-          <button type="submit" class="btn">Submit</button>
-          <div aria-live="polite" data-status></div>
-        </div>
-      </form>
-      <p class="muted">Prefer a call? <a href="#quote">Book a discovery call</a>.</p>
-    </section>
-    <aside class="stack">
-      <div class="card">
-        <h2>What happens next?</h2>
-        <ol class="stack">
-          <li>We review your note and tools.</li>
-          <li>We suggest the best starting agent(s) and ballpark scope.</li>
-          <li>We confirm integrations and deliverables.</li>
-          <li>We start building—typical setup 5–10 business days.</li>
-        </ol>
-      </div>
-      <div class="card">
-        <h2>Pricing</h2>
-        <p><strong>From $500+ per agent setup</strong> — quoted to your needs. Optional maintenance available.</p>
-      </div>
-    </aside>
+  <div class="form-row">
+    <div class="stack">
+      <label for="company">Company</label>
+      <input id="company" name="company" class="input" autocomplete="organization" />
+    </div>
+    <div class="stack">
+      <label for="website">Website</label>
+      <input id="website" name="website" class="input" type="url" placeholder="https://"/>
+    </div>
   </div>
-</main>
-<footer class="footer">
-  <div class="container grid grid-3">
-    <div><strong>Onbrd Solutions</strong><br/>Custom AI agents for small business.<div style="margin-top:.5rem;color:var(--muted)">© 2025 Onbrd Solutions</div></div>
-    <div><strong>Links</strong><br/><a href="services.html">Services</a><br/><a href="about.html">About</a><br/><a href="contact.html">Contact</a></div>
-    <div><strong>Contact</strong><br/>hello@onbrd.solutions<br/><span>Hamilton, New Zealand</span></div>
-  </div>
-</footer>
-<script defer src="assets/main.js"></script>
 
-</body></html>
+  <fieldset class="card">
+    <legend><strong>Which agent(s) are you interested in?</strong></legend>
+    <!-- use services[] so multiple boxes send as an array -->
+    <label><input type="checkbox" name="services[]" value="Website FAQ & Sales‑Assist Chatbot"> Website FAQ & Sales‑Assist Chatbot</label><br/>
+    <label><input type="checkbox" name="services[]" value="Social‑Media Planner & Auto‑Poster"> Social‑Media Planner & Auto‑Poster</label><br/>
+    <label><input type="checkbox" name="services[]" value="Email Lead‑Qualification Bot"> Email Lead‑Qualification Bot</label><br/>
+    <label><input type="checkbox" name="services[]" value="Meeting Recorder & Minutes Generator"> Meeting Recorder & Minutes Generator</label><br/>
+    <label><input type="checkbox" name="services[]" value="Other Useful Bots"> Other Useful Bots</label>
+  </fieldset>
+
+  <div class="form-row">
+    <div class="stack">
+      <label for="budget">Budget Range</label>
+      <select id="budget" name="budget" class="select">
+        <option value="">Not sure</option>
+        <option value="$500–$1k">$500–$1k</option>
+        <option value="$1k–$3k">$1k–$3k</option>
+        <option value="$3k–$5k">$3k–$5k</option>
+        <option value="$5k+">$5k+</option>
+      </select>
+    </div>
+    <div class="stack">
+      <label for="source">How did you hear about us?</label>
+      <input id="source" name="source" class="input" placeholder="Google, LinkedIn, referral..." />
+    </div>
+  </div>
+
+  <div class="stack">
+    <label for="message">What are you hoping to achieve?</label>
+    <textarea id="message" name="message" class="input" placeholder="Share a bit about your workflow, tools, and the outcomes you want."></textarea>
+  </div>
+
+  <!-- Helpful extras -->
+  <input type="hidden" name="_subject" value="New quote request — Onbrd Solutions" />
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <!-- If you created a redirect/thank-you page in Formspree settings, you can rely on that.
+       Otherwise we’ll just show their default success page. -->
+
+  <div class="stack">
+    <button type="submit" class="btn">Submit</button>
+  </div>
+</form>
