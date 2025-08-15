@@ -1,76 +1,3 @@
-<<<<<<< HEAD
-<form
-  id="quote"
-  class="stack"
-  action="https://formspree.io/f/mjkozpbk"
-  method="POST"
->
-  <div class="form-row">
-    <div class="stack">
-      <label for="name">Name</label>
-      <input id="name" name="name" class="input" required autocomplete="name" />
-    </div>
-    <div class="stack">
-      <label for="email">Work Email</label>
-      <input id="email" name="email" class="input" type="email" required autocomplete="email" />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="stack">
-      <label for="company">Company</label>
-      <input id="company" name="company" class="input" autocomplete="organization" />
-    </div>
-    <div class="stack">
-      <label for="website">Website</label>
-      <input id="website" name="website" class="input" type="url" placeholder="https://"/>
-    </div>
-  </div>
-
-  <fieldset class="card">
-    <legend><strong>Which agent(s) are you interested in?</strong></legend>
-    <!-- use services[] so multiple boxes send as an array -->
-    <label><input type="checkbox" name="services[]" value="Website FAQ & Sales‑Assist Chatbot"> Website FAQ & Sales‑Assist Chatbot</label><br/>
-    <label><input type="checkbox" name="services[]" value="Social‑Media Planner & Auto‑Poster"> Social‑Media Planner & Auto‑Poster</label><br/>
-    <label><input type="checkbox" name="services[]" value="Email Lead‑Qualification Bot"> Email Lead‑Qualification Bot</label><br/>
-    <label><input type="checkbox" name="services[]" value="Meeting Recorder & Minutes Generator"> Meeting Recorder & Minutes Generator</label><br/>
-    <label><input type="checkbox" name="services[]" value="Other Useful Bots"> Other Useful Bots</label>
-  </fieldset>
-
-  <div class="form-row">
-    <div class="stack">
-      <label for="budget">Budget Range</label>
-      <select id="budget" name="budget" class="select">
-        <option value="">Not sure</option>
-        <option value="$500–$1k">$500–$1k</option>
-        <option value="$1k–$3k">$1k–$3k</option>
-        <option value="$3k–$5k">$3k–$5k</option>
-        <option value="$5k+">$5k+</option>
-      </select>
-    </div>
-    <div class="stack">
-      <label for="source">How did you hear about us?</label>
-      <input id="source" name="source" class="input" placeholder="Google, LinkedIn, referral..." />
-    </div>
-  </div>
-
-  <div class="stack">
-    <label for="message">What are you hoping to achieve?</label>
-    <textarea id="message" name="message" class="input" placeholder="Share a bit about your workflow, tools, and the outcomes you want."></textarea>
-  </div>
-
-  <!-- Helpful extras -->
-  <input type="hidden" name="_subject" value="New quote request — Onbrd Solutions" />
-  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-  <!-- If you created a redirect/thank-you page in Formspree settings, you can rely on that.
-       Otherwise we’ll just show their default success page. -->
-
-  <div class="stack">
-    <button type="submit" class="btn">Submit</button>
-  </div>
-</form>
-=======
 <!doctype html>
 <html lang="en">
 <head>
@@ -78,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Onbrd Solutions</title>
   <meta name="description" content="Contact Onbrd Solutions to book a consult or request a demo." />
+  <link rel="icon" href="./assets/brand/favicon.ico">
   <link rel="stylesheet" href="./assets/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
   <header class="site-header container">
     <a class="logo" href="index.html">Onbrd<span>Solutions</span></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
-      <a aria-current="page" href="contact.html" class="btn btn-sm">Contact</a>
+      <a aria-current="page" href="contact.html">Contact</a>
+      <a class="btn btn-sm" href="#quote">Get a Custom Quote</a>
     </nav>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <h1>Let’s talk</h1>
     <p class="lead">Tell us what you’re trying to automate and we’ll suggest the quickest win.</p>
 
@@ -107,8 +42,7 @@
         <textarea required name="message" rows="6" placeholder="e.g., Phone answering + lead capture"></textarea>
       </label>
 
-      <!-- Honeypot field to reduce spam -->
-      <label class="hp" aria-hidden="true">Leave this empty
+      <label id="quote" class="hp" aria-hidden="true">Leave this empty
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
       </label>
 
@@ -124,4 +58,3 @@
   <script src="./assets/main.js" defer></script>
 </body>
 </html>
->>>>>>> 1958867 (Fix: contact form (Formspree JSON), relative paths, UI polish)
