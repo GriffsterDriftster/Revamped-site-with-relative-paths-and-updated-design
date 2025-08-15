@@ -15,6 +15,12 @@ h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui;line-height:1.2}
 .header.scrolled{box-shadow:var(--shadow)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}.nav a.logo{font-family:"Space Grotesk",ui-sans-serif;font-weight:700;color:var(--text);text-decoration:none}
 .nav .links{display:flex;gap:1rem;align-items:center}.nav .links a{color:var(--text);text-decoration:none;padding:.5rem .75rem;border-radius:8px}
+#nav-toggle{display:none}
+@media (max-width:900px){
+  #nav-toggle{display:inline-flex}
+  .nav .links{position:absolute;right:1rem;top:60px;flex-direction:column;align-items:stretch;background:var(--surface);padding:1rem;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.06);display:none;min-width:220px}
+  .nav .links.open{display:flex}
+}
 .nav .links a:focus-visible,.btn:focus-visible,.input:focus-visible,.select:focus-visible{outline:3px solid color-mix(in oklab,var(--brand) 70%,white);outline-offset:2px}
 .hero{position:relative;padding:5rem 0 3rem}.hero h1{font-size:clamp(2rem,4vw,3rem);margin:0}.hero p{font-size:clamp(1rem,1.6vw,1.125rem);color:var(--muted)}.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
 #hero-canvas{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.25}
