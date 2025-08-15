@@ -1,11 +1,46 @@
-// Sticky header
-const header=document.querySelector('.header');const onScroll=()=>requestAnimationFrame(()=>{if(window.scrollY>10)header?.classList.add('scrolled');else header?.classList.remove('scrolled')});window.addEventListener('scroll',onScroll);onScroll();
 // Mobile nav
-const navToggle=document.querySelector('#nav-toggle');const navMenu=document.querySelector('#nav-menu');navToggle?.addEventListener('click',()=>{const e='true'===navToggle.getAttribute('aria-expanded');navToggle.setAttribute('aria-expanded',String(!e));navMenu?.classList.toggle('open')});
-// Smooth anchors
-const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href')?.slice(1);const el=id&&document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:prefersReduced?'auto':'smooth',block:'start'});el.focus({preventScroll:true});}})});
-// Hero bg
-(()=>{const c=document.getElementById('hero-canvas');if(!c)return;const x=c.getContext('2d');let w,h,p=[];const N=70,M=140;function R(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;p=[];for(let i=0;i<N;i++)p.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6});}function D(){x.clearRect(0,0,w,h);for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){const a=p[i],b=p[j];const dx=a.x-b.x,dy=a.y-b.y;const d=Math.hypot(dx,dy);if(d<M){const a1=1-d/M;x.strokeStyle=`rgba(11,70,140,${a1*0.35})`;x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}for(const t of p){x.fillStyle='rgba(11,70,140,0.5)';x.beginPath();x.arc(t.x,t.y,2,0,Math.PI*2);x.fill();t.x+=t.vx;t.y+=t.vy;if(t.x<0||t.x>w)t.vx*=-1;if(t.y<0||t.y>h)t.vy*=-1;}requestAnimationFrame(D);}window.addEventListener('resize',R);R();D();})();
-// Contact form to Formspree / webhook
-const FORM_ENDPOINT=''; // e.g. "https://formspree.io//f/mjkozpbk" or webhook URL
-const form=document.querySelector('form[data-contact]');form?.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');const status=form.querySelector('[data-status]');btn.disabled=true;status.textContent='Sending...';const payload=Object.fromEntries(new FormData(form).entries());try{if(FORM_ENDPOINT){const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Bad response');}else{await new Promise(r=>setTimeout(r,900));}status.textContent='Thanks! We’ll get back to you shortly.';status.classList.add('badge');form.reset();}catch(err){status.textContent='Something went wrong. Please email hello@onbrd.solutions';status.style.color='var(--danger)';}finally{btn.disabled=false;}});
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.getElementById('site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
+
+// Current year
+const y = document.getElementById('year');
+if (y) y.textContent = new Date().getFullYear();
+
+// Formspree enhanced submit (prevents full page redirect, shows messages)
+const form = document.getElementById('contact-form');
+if (form) {
+  const statusEl = document.getElementById('form-status');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = 'Sending…';
+    statusEl.className = 'status';
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
+
+      if (res.ok) {
+        form.reset();
+        statusEl.textContent = 'Thanks! We’ll be in touch within 1 business day.';
+        statusEl.classList.add('ok');
+      } else {
+        const err = await res.json().catch(() => ({}));
+        statusEl.textContent = err?.error || 'Something went wrong. Please email us directly.';
+        statusEl.classList.add('bad');
+      }
+    } catch (err) {
+      statusEl.textContent = 'Network error. Check your connection and try again.';
+      statusEl.classList.add('bad');
+    }
+  });
+}

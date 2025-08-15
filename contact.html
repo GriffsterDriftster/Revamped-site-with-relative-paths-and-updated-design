@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form
   id="quote"
   class="stack"
@@ -69,3 +70,58 @@
     <button type="submit" class="btn">Submit</button>
   </div>
 </form>
+=======
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Onbrd Solutions</title>
+  <meta name="description" content="Contact Onbrd Solutions to book a consult or request a demo." />
+  <link rel="stylesheet" href="./assets/main.css">
+</head>
+<body>
+  <header class="site-header container">
+    <a class="logo" href="index.html">Onbrd<span>Solutions</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a aria-current="page" href="contact.html" class="btn btn-sm">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Let’s talk</h1>
+    <p class="lead">Tell us what you’re trying to automate and we’ll suggest the quickest win.</p>
+
+    <form id="contact-form" class="form" action="https://formspree.io/f/mjkozpbk" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry from Onbrd Solutions website" />
+      <input type="text" name="company" autocomplete="organization" placeholder="Company (optional)" />
+
+      <label>Email <span aria-hidden="true">*</span>
+        <input required type="email" name="email" autocomplete="email" placeholder="you@company.com" />
+      </label>
+
+      <label>What do you want to automate? <span aria-hidden="true">*</span>
+        <textarea required name="message" rows="6" placeholder="e.g., Phone answering + lead capture"></textarea>
+      </label>
+
+      <!-- Honeypot field to reduce spam -->
+      <label class="hp" aria-hidden="true">Leave this empty
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+      </label>
+
+      <button class="btn" type="submit">Send message</button>
+      <p id="form-status" role="status" aria-live="polite" class="status"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Onbrd Solutions</p>
+  </footer>
+
+  <script src="./assets/main.js" defer></script>
+</body>
+</html>
+>>>>>>> 1958867 (Fix: contact form (Formspree JSON), relative paths, UI polish)
